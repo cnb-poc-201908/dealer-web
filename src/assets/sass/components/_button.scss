@@ -1,0 +1,41 @@
+.el-button {
+  &:not(.is-circle) {
+    min-width: 5.625rem;
+  }
+
+  &.is-circle {
+    padding: 5px !important;
+  }
+  &.is-red {
+    background-color: #ffd7da;
+    border-color: darken(#ffd7da, 10%);
+    color: #000;
+    &:hover, &:focus {
+      color: #000;
+      background-color: darken(#ffd7da, 10%);
+      border-color: darken(#ffd7da, 20%);
+    }
+  }
+  &.is-yellow {
+    background: #fff3cb;
+    border-color: darken(#fff3cb, 10%);
+    color: #000;
+    &:hover, &:focus {
+      color: #000;
+      background-color: darken(#fff3cb, 10%);
+      border-color: darken(#fff3cb, 20%);
+    }
+  }
+}
+
+.el-button--danger.is-plain:focus {
+  background-color: #fef0f0;
+  border-color: #fbc4c4;
+  color: #f56c6c;
+}
+
+.el-button--primary.is-plain:focus {
+  background-color: #ecf5ff;
+  border-color: #b3d8ff;
+  color: #409eff;
+}

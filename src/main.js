@@ -10,6 +10,9 @@ Vue.prototype.$moment = moment;
 
 Vue.config.productionTip = false
 
+import Icon from 'vue-svg-icon/Icon.vue';
+Vue.component('icon', Icon);
+
 new Vue({
   router,
   store,

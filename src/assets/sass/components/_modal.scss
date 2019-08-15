@@ -1,0 +1,14 @@
+.v--modal-box {
+  position: absolute !important;
+
+  .el-input {
+    width: 30px;
+    top: -4px;
+    margin-left: 5px;
+  }
+
+  .el-dialog__body {
+    height: calc(100% - 58px);
+    padding: 10px;
+  }
+}

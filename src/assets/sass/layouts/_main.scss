@@ -1,0 +1,12 @@
+.el-main {
+  height: 100%;
+  padding: 10px;
+
+  .el-table__empty-block {
+    height: 400px;
+  }
+
+  .el-scrollbar__wrap {
+    overflow-x: hidden;
+  }
+}

@@ -4,6 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <Button type="primary">Primary</Button>
     <Button>Primary</Button>
+    <icon name="map" :scale="20"></icon>
   </div>
 </template>
 

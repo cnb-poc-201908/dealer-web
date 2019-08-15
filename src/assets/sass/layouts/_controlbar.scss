@@ -1,0 +1,32 @@
+.el-controlbar {
+  padding: .625rem;
+  font-size: 12px;
+
+  .el-switch {
+    margin-right: 15px;
+  }
+
+  .el-button {
+    padding: .5rem;
+
+    svg {
+      margin-right: 5px;
+      margin-top: -1px;
+    }
+  }
+
+  .el-row {
+    display: flex;
+    align-items: center;
+
+    + .el-row {
+      margin-top: 10px;
+    }
+  }
+
+  .record {
+    display: inline-block;
+    font-size: .75rem;
+    margin-left: .3125rem;
+  }
+}

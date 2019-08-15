@@ -1,0 +1,15 @@
+.el-collapse {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.el-collapse-item {
+  &.is-active {
+    .el-collapse-item__wrap {
+      height: calc(100% - 50px);
+      overflow: auto;
+    }
+  }
+}

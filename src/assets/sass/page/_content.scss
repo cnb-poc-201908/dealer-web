@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+.result {
+  .notesdoc {
+    margin-top: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  a {
+    color: #039be5;
+    font-weight: bold;
+  }
+
+  .title {
+    width: 50%;
+  }
+
+  .range {
+    width: 20%;
+  }
+
+  .action {
+    width: 30%;
+  }
+}
