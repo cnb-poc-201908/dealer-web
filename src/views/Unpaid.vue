@@ -25,10 +25,12 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  现有库存 / 全部库存
                 </div>
                 <div class="card-content__item--content">
-                  <Progress :percent="25" />
+                  <div class="stock">
+                    <span class="less">12</span> / 50
+                  </div>
                 </div>
               </div>
               <div class="card-content__item">
@@ -151,10 +153,12 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  现有库存 / 全部库存
                 </div>
                 <div class="card-content__item--content">
-                  <Progress :percent="25" />
+                  <div class="stock">
+                    <span class="">32</span> / 50
+                  </div>
                 </div>
               </div>
               <div class="card-content__item">
@@ -198,10 +202,12 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  现有库存 / 全部库存
                 </div>
                 <div class="card-content__item--content">
-                  <Progress :percent="25" />
+                  <div class="stock">
+                    <span class="less">12</span> / 50
+                  </div>
                 </div>
               </div>
               <div class="card-content__item">
@@ -327,10 +333,12 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  现有库存 / 全部库存
                 </div>
                 <div class="card-content__item--content">
-                  <Progress :percent="25" />
+                  <div class="stock">
+                    <span class="less">2</span> / 50
+                  </div>
                 </div>
               </div>
               <div class="card-content__item">
@@ -500,6 +508,7 @@
 <script>
   import Header from '@/components/Header.vue'
   import Menus from '@/components/Menu.vue'
+  import echarts from 'echarts'
   export default {
     name: 'unpaid',
     components: {
@@ -509,14 +518,52 @@
     props: {},
     data() {
       return {
-        isExpand: false
+        isExpand: false,
+        chart: null,
+        dataList: [],
+        dateStr: []
       }
     },
     watch: {},
     computed: {},
-    methods: {},
-    created() {},
-    mounted() {}
+    methods: {
+      initChart() {
+        this.chart = echarts.init(this.$refs.myEchart, { width: 350, heigh: 42 });
+        console.log(this.$refs.myEchart);
+        // 把配置和数据放这里
+
+        var option = {
+          color: ['#3398DB'],
+          xAxis: [
+          {
+            type: 'category',
+            data: ['qiantian', 'zuotian', 'jintian'],
+            show: false
+          }],
+          yAxis: [
+          {
+            type: 'value',
+            show: false
+          }],
+          series: [
+          {
+            type: 'bar',
+            data: [10, 8, 2],
+          }]
+        };
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        this.chart.setOption(option);
+      },
+    },
+    created() {
+
+    },
+    mounted() {
+      this.initChart();
+    }
   }
 
 </script>

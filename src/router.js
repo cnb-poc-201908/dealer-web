@@ -12,6 +12,10 @@ export default new Router({
   routes: [
   {
     path: '/',
+    redirect: '/unconfirmed/1'
+  },
+  {
+    path: '/unconfirmed',
     name: 'unconfirmed',
     component: Unconfirmed
   },
@@ -19,7 +23,6 @@ export default new Router({
     path: '/unpaid',
     name: 'unpaid',
     component: Unpaid
-
   },
   {
     path: '/paid',

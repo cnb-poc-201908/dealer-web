@@ -25,7 +25,7 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  库存
                 </div>
                 <div class="card-content__item--content">
                   <Progress :percent="25" />
@@ -151,7 +151,7 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  库存
                 </div>
                 <div class="card-content__item--content">
                   <Progress :percent="25" />
@@ -198,7 +198,7 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  库存
                 </div>
                 <div class="card-content__item--content">
                   <Progress :percent="25" />
@@ -327,7 +327,7 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  匹配度
+                  库存
                 </div>
                 <div class="card-content__item--content">
                   <Progress :percent="25" />
@@ -516,10 +516,12 @@
     computed: {},
     methods: {
       onSubmit() {
-        this.$router.push({ path: 'unpaid' })
+        this.$router.push({ path: 'unpaid', query: { id: this.$route.query.id } })
       }
     },
-    created() {},
+    created() {
+      console.log(this.$route.query.id);
+    },
     mounted() {}
   }
 
