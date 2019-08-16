@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sit-bmw-dealerweb
+  namespace: sit
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sit-bmw-dealerweb
+    spec:
+      containers:
+        - name: sit-bmw-dealerweb
+          image: registry.cn-beijing.aliyuncs.com/bmwpoc/sit-bmw-dealerweb:{version}
+          ports:
+            - name: http-port
+              containerPort: 8080
+      imagePullSecrets:
+        - name: bmwpoc
