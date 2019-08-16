@@ -11,8 +11,8 @@
             <Checkbox>&nbsp;</Checkbox>
           </div>
           <Card :shadow="true">
-            <section class="card-content" @click="isExpand = !isExpand">
-              <div class="card-content__item">
+            <section class="card-content basic-content" @click="isExpand = !isExpand">
+              <div class="card-content__item img">
                 <img src="../assets/img/car.png" alt="">
               </div>
               <div class="card-content__item">
@@ -23,12 +23,12 @@
                   <h2>BMW320LI</h2>
                 </div>
               </div>
-              <div class="card-content__item">
+              <div class="card-content__item" style="flex:2">
                 <div class="card-content__item--label">
-                  库存
+                  匹配度
                 </div>
                 <div class="card-content__item--content">
-                  <Progress :percent="25" />
+                  <Progress :percent="100" />
                 </div>
               </div>
               <div class="card-content__item">
@@ -59,22 +59,6 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  PM/BANK
-                </div>
-                <div class="card-content__item--content">
-                  1233546
-                </div>
-              </div>
-              <div class="card-content__item">
-                <div class="card-content__item--label">
-                  订单类型
-                </div>
-                <div class="card-content__item--content">
-                  {{$moment().format("YYYY-MM-DD")}}
-                </div>
-              </div>
-              <div class="card-content__item">
-                <div class="card-content__item--label">
                   ReqProdWeek
                 </div>
                 <div class="card-content__item--content">
@@ -86,7 +70,7 @@
                   品牌
                 </div>
                 <div class="card-content__item--content">
-                  ¥323800
+                  BMW
                 </div>
               </div>
               <div class="card-content__item">
@@ -102,7 +86,7 @@
                   外观颜色
                 </div>
                 <div class="card-content__item--content">
-                  ¥323800
+                  <span class="car_color" :class="color"></span>
                 </div>
               </div>
               <div class="card-content__item">
@@ -113,12 +97,14 @@
                   ¥323800
                 </div>
               </div>
-              <div class="card-content__item">
+              <div class="card-content__item" style="flex: 3">
                 <div class="card-content__item--label">
                   配置
                 </div>
                 <div class="card-content__item--content">
-                  ¥323800
+                  <p>Lumbar support for driver and front passenger</p>
+                  <p>Cruise control with braking function</p>
+                  <p>Cruise control with braking function</p>
                 </div>
               </div>
               <div class="card-content__item">
@@ -126,9 +112,10 @@
                   数量
                 </div>
                 <div class="card-content__item--content">
-                  ¥323800
+                  90
                 </div>
               </div>
+
             </section>
           </Card>
         </div>
@@ -138,7 +125,7 @@
           </div>
           <Card :shadow="true">
             <section class="card-content">
-              <div class="card-content__item">
+              <div class="card-content__item img">
                 <img src="../assets/img/car.png" alt="">
               </div>
               <div class="card-content__item">
@@ -151,7 +138,7 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  库存
+                  匹配度
                 </div>
                 <div class="card-content__item--content">
                   <Progress :percent="25" />
@@ -198,10 +185,10 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  库存
+                  匹配度
                 </div>
                 <div class="card-content__item--content">
-                  <Progress :percent="25" />
+                  <Progress :percent="90" />
                 </div>
               </div>
               <div class="card-content__item">
@@ -327,7 +314,7 @@
               </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
-                  库存
+                  匹配度
                 </div>
                 <div class="card-content__item--content">
                   <Progress :percent="25" />
@@ -509,7 +496,8 @@
     props: {},
     data() {
       return {
-        isExpand: false
+        isExpand: false,
+        color: "blue",
       }
     },
     watch: {},

@@ -12,7 +12,7 @@
           </div>
           <Card :shadow="true">
             <section class="card-content" @click="isExpand = !isExpand">
-              <div class="card-content__item">
+              <div class="card-content__item img">
                 <img src="../assets/img/car.png" alt="">
               </div>
               <div class="card-content__item">
@@ -527,36 +527,7 @@
     watch: {},
     computed: {},
     methods: {
-      initChart() {
-        this.chart = echarts.init(this.$refs.myEchart, { width: 350, heigh: 42 });
-        console.log(this.$refs.myEchart);
-        // 把配置和数据放这里
-
-        var option = {
-          color: ['#3398DB'],
-          xAxis: [
-          {
-            type: 'category',
-            data: ['qiantian', 'zuotian', 'jintian'],
-            show: false
-          }],
-          yAxis: [
-          {
-            type: 'value',
-            show: false
-          }],
-          series: [
-          {
-            type: 'bar',
-            data: [10, 8, 2],
-          }]
-        };
-
-
-
-        // 使用刚指定的配置项和数据显示图表。
-        this.chart.setOption(option);
-      },
+      initChart() {},
     },
     created() {
 
