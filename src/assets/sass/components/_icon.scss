@@ -1,0 +1,26 @@
+.ivu-icon {
+  color: #c00;
+  font-size: 16px;
+}
+.ivu-tooltip {
+  vertical-align: text-bottom;
+}
+.ivu-tooltip-inner {
+  > div {
+    display: flex;
+    font-size: 12px;
+    div {
+      flex: 1;
+      text-align: center;
+      padding-right: 15px;
+      + div {
+        border-left: 1px solid #fff;
+        padding-left: 15px;
+      }
+    }
+    p {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}

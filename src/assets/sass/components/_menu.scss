@@ -1,0 +1,17 @@
+.ivu-menu-dark {
+  background-color: $color-default !important;
+}
+.ivu-menu-item {
+  &.ivu-menu-item-active {
+    a {
+      color: #fff;
+    }
+  }
+  a {
+    color: hsla(0, 0, 100%, .7);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

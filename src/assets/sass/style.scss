@@ -1,5 +1,4 @@
 @import 'utilities/variables', 'utilities/mixins';
-@import 'layouts/header', 'layouts/aside', 'layouts/main', 'layouts/controlbar';
 @import 'page/base', 'page/content';
-@import 'components/time', 'components/button', 'components/card', 'components/collapse', 'components/tabs', 'components/table', 'components/switch', 'components/modal', 'components/dialog'
-
+@import 'components/menu', 'components/card', 'components/button', 'components/icon';
+@import 'layouts/header', 'layouts/footer', 'layouts/main';

@@ -1,0 +1,21 @@
+footer {
+  background-color: #f3f3f3;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1280px;
+    margin: 0 auto;
+    padding: 10px;
+
+    .ivu-checkbox-wrapper {
+      font-size: 16px;
+    }
+  }
+}
