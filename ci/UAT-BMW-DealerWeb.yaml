@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: uat-bmw-dealerweb
+  namespace: uat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: uat-bmw-dealerweb
+    spec:
+      containers:
+        - name: uat-bmw-dealerweb
+          image: registry.cn-beijing.aliyuncs.com/bmwpoc/uat-bmw-dealerweb:{version}
+          ports:
+            - name: http-port
+              containerPort: 8080
+      imagePullSecrets:
+        - name: bmwpoc
