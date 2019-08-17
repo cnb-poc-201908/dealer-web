@@ -199,7 +199,6 @@
       return {
         dealerId: this.$route.query.dealerId,
         isExpand: false,
-        color: "Melbourne Red",
         checkList: [],
         dataGroup: [],
       }
@@ -230,7 +229,7 @@
             orderId: [],
             list: []
           };
-        api.getData(this.dealerId).then((res) => {
+        api.getConfirm(this.dealerId).then((res) => {
           console.log(res.data.data);
           _.forEach(res.data.data, (value) => {
             console.log(value);
@@ -239,19 +238,14 @@
             if (value.matchRate == 100) {
               perfectGroup.title = "完全匹配";
               perfectGroup.type = "perfect";
-              _.forEach(value.orders, (o) => {
-                value.orderId.push(o.orderId);
-              });
               perfectGroup.list.push(value);
             } else if (value.matchRate >= 80 && value.matchRate <= 99) {
               optimalGroup.title = "最优匹配";
-              perfectGroup.type = "optimal";
-              perfectGroup.orderId.push(value.orderId)
+              optimalGroup.type = "optimal";
               optimalGroup.list.push(value);
             } else {
               recommendGroup.title = "推荐匹配";
-              perfectGroup.type = "recommend";
-              perfectGroup.orderId.push(value.orderId)
+              recommendGroup.type = "recommend";
               recommendGroup.list.push(value);
             }
           });
@@ -269,16 +263,19 @@
           content: '订单提交...',
           duration: 0
         });
-        api.getData(this.checkList).then((res) => {
+        console.log(this.checkList);
+        api.sendConfirm(this.dealerId, this.checkList).then((res) => {
           console.log(res);
           setTimeout(msg, 0);
           this.$Message.success({
             content: '订单提交成功',
             onClose() {
-              console.log("aaaaaa");
               _this.$router.push({ path: 'unpaid', query: { id: _this.$route.query.id } })
             }
           })
+        }).catch((reason) => {
+          setTimeout(msg, 0);
+          this.$Message.error('提交错误');
         })
       }
     },
