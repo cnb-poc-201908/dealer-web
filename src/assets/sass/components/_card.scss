@@ -30,7 +30,6 @@
   }
 }
 .card-content {
-  display: flex;
   align-items: center;
   justify-content: space-around;
   &:first-child {
@@ -43,7 +42,10 @@
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid #dcdcdc;
-    align-items: flex-start;
+    .card-group {
+      align-items: flex-start;
+      display: flex;
+    }
     .card-content__item--content {
       font-size: 14px;
     }
@@ -52,6 +54,7 @@
     }
   }
   &.basic-content {
+    display: flex;
     .card-content__item--content {
       height: 42px;
       line-height: 42px;
@@ -102,10 +105,28 @@
   border: 3px solid #fff;
   box-shadow: 0 0 0 1px #eee;
 
-  &.red {
-    background-color: #c00;
+  &.Snowwhite {
+    background-color: #f3f3f3;//雪白
   }
-  &.blue {
-    background-color: #0523e1;
+  &.Black {
+    background-color: #4a4a4a;//黑
+  }
+  &.Cashmere.Silver {
+    background-color: #9fa0a7;//开士米银
+  }
+  &.Melbourne.Red {
+    background-color: #a51920;// 墨尔本红
+  }
+  &.Mineral.White {
+    background-color: #f7f3f1;// 墨尔本红
+  }
+  &.Estoril.Blue-Estoril {
+    background-color: #0b356c;//蓝
+  }
+  &.Royal.Burgundy.Red {
+    background-color: #5c0b0b;// 皇家勃艮第红
+  }
+  &.Atlas.Cedar {
+    background-color: #235136;// 皇家勃艮第红
   }
 }

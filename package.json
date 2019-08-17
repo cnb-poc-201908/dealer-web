@@ -11,8 +11,10 @@
     "core-js": "^2.6.5",
     "echarts": "^4.2.1",
     "iview": "^3.4.2",
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
+    "vue-currency-filter": "^3.4.1",
     "vue-router": "^3.0.3",
     "vue-svg-icon": "^1.2.9",
     "vuex": "^3.0.1"

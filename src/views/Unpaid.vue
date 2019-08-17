@@ -134,52 +134,6 @@
             </section>
           </Card>
         </div>
-        <div class="card-item">
-          <div class="check">
-            <Checkbox>&nbsp;</Checkbox>
-          </div>
-          <Card :shadow="true">
-            <section class="card-content">
-              <div class="card-content__item">
-                <img src="../assets/img/car.png" alt="">
-              </div>
-              <div class="card-content__item">
-                <div class="card-content__item--label">
-                  车系
-                </div>
-                <div class="card-content__item--content">
-                  <h2>BMW320LI</h2>
-                </div>
-              </div>
-              <div class="card-content__item">
-                <div class="card-content__item--label">
-                  现有库存 / 全部库存
-                </div>
-                <div class="card-content__item--content">
-                  <div class="stock">
-                    <span class="">32</span> / 50
-                  </div>
-                </div>
-              </div>
-              <div class="card-content__item">
-                <div class="card-content__item--label">
-                  预计交车时间
-                </div>
-                <div class="card-content__item--content">
-                  {{$moment().format("YYYY-MM-DD")}}
-                </div>
-              </div>
-              <div class="card-content__item">
-                <div class="card-content__item--label">
-                  金额
-                </div>
-                <div class="card-content__item--content">
-                  ¥323800
-                </div>
-              </div>
-            </section>
-          </Card>
-        </div>
       </div>
       <div class="card-title">最优匹配</div>
       <div class="card optimal">
@@ -499,7 +453,7 @@
     <footer>
       <div class="wrapper">
         <Checkbox>全选</Checkbox>
-        <Button>确定</Button>
+        <Button @click="onSubmit">确定</Button>
       </div>
     </footer>
   </div>
@@ -527,13 +481,15 @@
     watch: {},
     computed: {},
     methods: {
-      initChart() {},
+      onSubmit() {
+        this.$router.push({ path: 'unpaid', query: { id: this.$route.query.id } })
+      }
     },
     created() {
 
     },
     mounted() {
-      this.initChart();
+
     }
   }
 
