@@ -24,12 +24,10 @@
               </div>
               <div class="card-content__item" style="flex:2">
                 <div class="card-content__item--label">
-                  现有库存 / 全部库存
+                  车型
                 </div>
                 <div class="card-content__item--content">
-                  <div class="stock">
-                    <span :class="{less: item.remain < 50}">{{item.remain}}</span> / {{item.totalRemain}}
-                  </div>
+                  {{item.configDesc}}
                 </div>
               </div>
               <div class="card-content__item">
@@ -45,20 +43,23 @@
                   </Tooltip>
                 </div>
               </div>
-              <div class="card-content__item" style="flex:2">
-                <div class="card-content__item--label">
-                  内饰
-                </div>
-                <div class="card-content__item--content">
-                  {{item.upholsteryDesc}}
-                </div>
-              </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
                   数量
                 </div>
                 <div class="card-content__item--content">
                   {{item.amount}}
+                </div>
+              </div>
+              <div class="card-content__item" style="flex:2">
+                <div class="card-content__item--label">
+                  现有库存 / 全部库存
+                </div>
+                <div class="card-content__item--content">
+                  <div class="stock">
+                    {{stock[index].remain}} || {{stock[index].totalRemain}}
+                    <span :class="{less: item.remain < 50}">{{item.remain}}</span> / {{item.totalRemain}}
+                  </div>
                 </div>
               </div>
               <div class="card-content__item" style="flex:2">
@@ -160,6 +161,14 @@
                       <p v-for="(a, index) in o.addDescs" :key="index">{{a}}</p>
                     </div>
                   </div>
+                  <div class="card-content__item" style="flex:2">
+                    <div class="card-content__item--label">
+                      金额
+                    </div>
+                    <div class="card-content__item--content">
+                      {{o.totalPrice | currency}}
+                    </div>
+                  </div>
                 </div>
               </template>
             </section>
@@ -193,6 +202,7 @@
         checkList: [],
         dataGroup: [],
         msg: null,
+        stock: []
       }
     },
     watch: {},
@@ -202,10 +212,17 @@
         this.dataGroup = [];
         api.getUnPaid(this.dealerId).then((res) => {
           _.forEach(res.data.data, (value) => {
+            console.log(value);
             value.isExpand = false;
+            this.stock.push({
+              groupId: value.groupId,
+              remain: value.remain,
+              totalRemain: value.totalRemain
+            })
             this.dataGroup.push(value);
           });
           console.log(this.dataGroup);
+          console.log(this.stock);
           setTimeout(this.msg, 0);
         })
       },
@@ -228,7 +245,7 @@
       },
       onPull() {
         api.getPull(this.dealerId).then((res) => {
-          console.log(res.data);
+          console.log(res.data.data);
         });
       }
     },
