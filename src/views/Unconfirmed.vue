@@ -63,7 +63,7 @@
                       </div>
                       <div class="card-content__item">
                         <div class="card-content__item--label">
-                          ReqProdWeek
+                          预计交车时间
                         </div>
                         <div class="card-content__item--content">
                           {{o.apw}}
@@ -264,13 +264,13 @@
           duration: 0
         });
         console.log(this.checkList);
-        api.sendConfirm(this.dealerId, this.checkList).then((res) => {
+        api.setStatus(2, this.checkList).then((res) => {
           console.log(res);
           setTimeout(msg, 0);
           this.$Message.success({
             content: '订单提交成功',
             onClose() {
-              _this.$router.push({ path: 'unpaid', query: { id: _this.$route.query.id } })
+              _this.$router.push({ path: 'unpaid', query: { dealerId: _this.dealerId } })
             }
           })
         }).catch((reason) => {

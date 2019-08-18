@@ -5,7 +5,21 @@ export default {
   getConfirm(id) {
     return axios.get(`${this.DATA_URL}/order/orders/unconfirmed?dealerId=${id}`);
   },
-  sendConfirm(id, data) {
-    return axios.post(`${this.DATA_URL}/order/orders/unconfirmed?dealerId=${id}`, data);
-  }
+
+  setStatus(status, data) {
+    return axios.put(`${this.DATA_URL}/order/orders/status/change/${status}`, data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  },
+  getUnPaid(id) {
+    return axios.get(`${this.DATA_URL}/order/orders/unpaid?dealerId=${id}`);
+  },
+  getPull(id) {
+    return axios.get(`${this.DATA_URL}/order/orders/remains?dealerId=${id}`);
+  },
+  getPaid(id) {
+    return axios.get(`${this.DATA_URL}/order/orders/paid?dealerId=${id}`);
+  },
 }
