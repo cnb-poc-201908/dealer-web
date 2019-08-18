@@ -6,9 +6,6 @@
     <main>
       <div class="card">
         <div class="card-item" v-for="(item, index) in dataGroup" :key="index">
-          <div class="check">
-            <input type="checkbox" name="checkbox" id="" v-model="checkList" :value="item.orderIds">
-          </div>
           <Card :shadow="true">
             <section class="card-content basic-content" @click="item.isExpand = !item.isExpand">
               <div class="card-content__item img">
@@ -20,6 +17,14 @@
                 </div>
                 <div class="card-content__item--content">
                   <h2>BMW320LI</h2>
+                </div>
+              </div>
+              <div class="card-content__item" style="flex:2">
+                <div class="card-content__item--label">
+                  车型
+                </div>
+                <div class="card-content__item--content">
+                  {{item.configDesc}}
                 </div>
               </div>
               <div class="card-content__item">
@@ -35,7 +40,7 @@
                   </Tooltip>
                 </div>
               </div>
-              <div class="card-content__item" style="flex:2">
+              <div class="card-content__item" style="flex:3">
                 <div class="card-content__item--label">
                   内饰
                 </div>

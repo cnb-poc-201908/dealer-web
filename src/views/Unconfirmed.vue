@@ -25,7 +25,7 @@
                       <h2>BMW320LI</h2>
                     </div>
                   </div>
-                  <div class="card-content__item" style="flex:2">
+                  <div class="card-content__item">
                     <div class="card-content__item--label">
                       匹配度
                     </div>
@@ -33,7 +33,7 @@
                       <Progress :percent="car.matchRate" />
                     </div>
                   </div>
-                  <div class="card-content__item" style="flex:2">
+                  <div class="card-content__item" style="flex:3">
                     <div class="card-content__item--label">
                       车型
                     </div>
@@ -54,6 +54,14 @@
                       </Tooltip>
                     </div>
                   </div>
+                  <div class="card-content__item" style="flex:3">
+                    <div class="card-content__item--label">
+                      内饰
+                    </div>
+                    <div class="card-content__item--content">
+                      {{car.upholsteryDesc}}
+                    </div>
+                  </div>
                   <div class="card-content__item">
                     <div class="card-content__item--label">
                       数量
@@ -62,7 +70,7 @@
                       {{car.amount}}
                     </div>
                   </div>
-                  <div class="card-content__item" style="flex:2">
+                  <div class="card-content__item" style="flex:3">
                     <div class="card-content__item--label">
                       金额
                     </div>

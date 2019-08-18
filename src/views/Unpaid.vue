@@ -22,7 +22,7 @@
                   <h2>BMW320LI</h2>
                 </div>
               </div>
-              <div class="card-content__item" style="flex:2">
+              <div class="card-content__item" style="flex:3">
                 <div class="card-content__item--label">
                   车型
                 </div>
@@ -43,6 +43,14 @@
                   </Tooltip>
                 </div>
               </div>
+              <div class="card-content__item" style="flex:3">
+                <div class="card-content__item--label">
+                  内饰
+                </div>
+                <div class="card-content__item--content">
+                  {{item.upholsteryDesc}}
+                </div>
+              </div>
               <div class="card-content__item">
                 <div class="card-content__item--label">
                   数量
@@ -57,12 +65,11 @@
                 </div>
                 <div class="card-content__item--content">
                   <div class="stock">
-                    {{stock[index].remain}} || {{stock[index].totalRemain}}
-                    <span :class="{less: item.remain < 50}">{{item.remain}}</span> / {{item.totalRemain}}
+                    <span :class="{less: stock[index].remain < 50}">{{stock[index].remain}}</span> / {{stock[index].totalRemain}}
                   </div>
                 </div>
               </div>
-              <div class="card-content__item" style="flex:2">
+              <div class="card-content__item" style="flex:3">
                 <div class="card-content__item--label">
                   金额
                 </div>
@@ -245,7 +252,15 @@
       },
       onPull() {
         api.getPull(this.dealerId).then((res) => {
-          console.log(res.data.data);
+          _.forEach(res.data.data, (v) => {
+            _.forEach(this.stock, (i) => {
+              if (v.groupId === i.groupId) {
+                i.remain = v.remain;
+                i.totalRemain = v.totalRemain;
+              }
+            })
+          })
+          console.log(this.stock);
         });
       }
     },
@@ -258,10 +273,9 @@
       console.log(this.$route.query.dealerId);
     },
     mounted() {
-      this.onPull();
       setInterval(() => {
-        // this.onGetData();
-      }, 1500);
+        this.onPull();
+      }, 5000);
     }
   }
 

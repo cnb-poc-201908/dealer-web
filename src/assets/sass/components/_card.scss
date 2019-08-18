@@ -63,6 +63,10 @@
     .card-content__item--content {
       height: 42px;
       line-height: 42px;
+      white-space: nowrap;
+      max-width: 180px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   @include element(item) {
@@ -95,7 +99,7 @@
       }
     }
     .ivu-progress {
-      width: 230px;
+      width: 150px;
     }
   }
 }
